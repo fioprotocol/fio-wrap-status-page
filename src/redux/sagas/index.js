@@ -6,9 +6,9 @@ import {
   GET_FIO_BALANCE_SUCCESS,
 } from "../actions/fioActions";
 
-import { getFIOBalanceApi } from "../../../api";
+import { getFIOBalanceApi } from "../../api";
 
-import { APP_API_CALL_FAIL } from "../../../config";
+import { APP_API_CALL_FAIL } from "../../config";
 
 function* getBalancePriceSaga() {
   try {
