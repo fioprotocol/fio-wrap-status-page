@@ -13,7 +13,7 @@ const store = createStore(
 );
 
 sagaMiddleware.run(rootSaga);
-
+  
 export const MainStore = () => {
   return store;
 }
