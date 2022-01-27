@@ -17,8 +17,8 @@ function* getBalancePriceSaga() {
   } catch (e) {
     yield put({ type: GET_FIO_BALANCE_FAIL });
     yield put({
-      type: APP_API_CALL_FAIL,
-      message: "Error when get FIO balance",
+        type: APP_API_CALL_FAIL,
+        message: "Error when get FIO balance",
       err: e.message,
     });
   }
