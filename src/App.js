@@ -2,6 +2,9 @@ import "./App.css";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getBalance, getBalanceSuccess } from './redux/actions/fioActions';
+import Wrapping from "./pages/Wrapping";
+import 'antd/dist/antd.css';
+
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -9,7 +12,7 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <p>Base layout app for the Page</p>
+      <Wrapping/>
     </div>
   );
 }
