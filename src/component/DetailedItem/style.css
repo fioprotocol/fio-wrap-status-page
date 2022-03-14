@@ -1,0 +1,21 @@
+.panel_transaction{
+    display: flex;
+    flex-direction: column;
+}
+.panel_tag {
+    font-weight: bold;
+    font-size: 12px;
+}
+.panel_FIO{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+p
+{
+    font-size: 12px;
+    color: #B5B5B5;
+    display: flex;
+    align-items: center;
+}

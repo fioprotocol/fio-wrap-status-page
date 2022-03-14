@@ -1,11 +1,10 @@
-
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import { Tabs } from 'antd';
 import WrappingTabs from "../component/WrappingTab";
 import UnwrappingTabs from "../component/UnwrappingTab";
 
 function Wrapping() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const { TabPane } = Tabs;
   const  callback = (key) => {
     console.log(key);
@@ -29,4 +28,3 @@ function Wrapping() {
 }
 
 export default Wrapping;
-
