@@ -17,7 +17,7 @@ export const FIOReducer = (state = initState, action) => {
   }
 };
 
-const balanceSelector = (state) => state.fio.balancePrice;
+const balanceSelector = (state) => state.fio.balance;
 
 export const getBalancePriceSelector = createSelector(
   balanceSelector,

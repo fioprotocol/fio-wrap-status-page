@@ -1,4 +1,4 @@
-import React, { useState } from 'react';  
+import React, { useState } from 'react';
 import { Collapse, Tag } from 'antd';
 import "./style.css";
 import WrapDetailedModal from '../Modal/WrapDetailedModal';
@@ -44,9 +44,8 @@ function DetailedItem() {
                 </div>
                 <div className='panel_FIO'>
                   <p>bp3@cryptohandle</p>
-                  <Tag color="#525252"><div className='panel_tag'>Wrapped </div></Tag>
+                  <Tag color="#525252"><div className='panel_tag'>Wrapped</div></Tag>
                 </div>
-
               </div>
             </Panel>
         </Collapse>

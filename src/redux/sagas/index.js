@@ -13,6 +13,7 @@ import { APP_API_CALL_FAIL } from "../../config";
 function* getBalancePriceSaga() {
   try {
     const result = yield getFIOBalanceApi();
+    console.log("data: ", result);
     yield put({ type: GET_FIO_BALANCE_SUCCESS, balance: result });
   } catch (e) {
     yield put({ type: GET_FIO_BALANCE_FAIL });
