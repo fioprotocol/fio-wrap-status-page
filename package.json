@@ -10,9 +10,11 @@
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.19.1",
     "axios": "^0.25.0",
+    "dotenv-safe": "^8.2.0",
     "fontsource-roboto": "4.0.0",
     "moment": "2.29.1",
     "node-sass": "^7.0.1",
+    "path": "^0.12.7",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -25,10 +27,10 @@
     "web3": "^1.7.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject"
   },
   "eslintConfig": {
     "extends": [
@@ -49,8 +51,21 @@
     ]
   },
   "devDependencies": {
+    "assert": "^2.0.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
     "eslint": "^8.5.0",
     "eslint-config-react-app": "^7.0.0",
-    "prettier": "2.5.1"
+    "https-browserify": "^1.0.0",
+    "os-browserify": "^0.3.0",
+    "prettier": "2.5.1",
+    "process": "^0.11.10",
+    "react-app-rewired": "^2.2.1",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.0"
+  },
+  "browser": {
+    "crypto": false
   }
 }

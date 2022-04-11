@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { getBalance } from './redux/actions/fioActions';
 import Wrapping from "./pages/Wrapping";
 import 'antd/dist/antd.css';
-
+import './polyfill';
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
