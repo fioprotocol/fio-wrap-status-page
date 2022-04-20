@@ -15,10 +15,11 @@ function UnwrappingTabs() {
       url: 'http://localhost:8008/fio-backend/blocknumber/ethereum',
     });
     const blockNumber = response.data.blockNumber;
+    const bNumber = parseInt(blockNumber, 10);
     console.log(fioContract);
     fioContract.getPastEvents('unwrapped',{ // get unwrap event from ETH using blocknumber
       // filter: {id: 1},  
-      fromBlock: 12207952,
+      fromBlock: bNumber,
       toBlock: 'latest'
   }, (error, events) => {
       if (!error){
