@@ -10,12 +10,12 @@ function DetailedItem() {
     setWrapModal(true);
   }
   const hideWrapModal = () => {
-    setWrapModal(false);
+     
   }
   return (
     <div>
         <WrapDetailedModal open={isWrapModal} onClose={hideWrapModal}/>
-        <Collapse defaultActiveKey={['1']} bordered>
+        <Collapse defaultActiveKey={['1']} bordered> 
             <Panel header="Timestamp:<00/00/0000 @ 00:00 AM>   Actor:<Actor> Chain:<chain> Amount: <amount>" key="1" extra={
                 <div>
                     <Tag color="#108ee9"><div className='panel_tag'>Completed</div></Tag>
@@ -26,7 +26,7 @@ function DetailedItem() {
                 <p>0x30b384dd51a3fcc25f8a017f392941530e1fd0807304cf46c53fdf8ffb2c479d</p>
               </div>
               <div className='panel_transaction'>
-                <h4>FIO Chain Transactions</h4>
+                <h4>FIO Chain Transactions</h4> 
                 <div className='panel_FIO'>
                   <p>user@cryptohandle</p>
                   <Tag color="#525252"><div className='panel_tag'>Sent</div></Tag>
