@@ -12,10 +12,10 @@ function DetailedItem() {
   const hideWrapModal = () => {
      
   }
-  return (
+  return ( 
     <div>
         <WrapDetailedModal open={isWrapModal} onClose={hideWrapModal}/>
-        <Collapse defaultActiveKey={['1']} bordered> 
+        <Collapse defaultActiveKey={['1']} bordered>
             <Panel header="Timestamp:<00/00/0000 @ 00:00 AM>   Actor:<Actor> Chain:<chain> Amount: <amount>" key="1" extra={
                 <div>
                     <Tag color="#108ee9"><div className='panel_tag'>Completed</div></Tag>

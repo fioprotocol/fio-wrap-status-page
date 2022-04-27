@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 function WrappingTabs() {
   const { Panel } = Collapse;
   const connectedAddress = useSelector((state) => state.fio.balance);
-  console.log(connectedAddress);
   return (
     <div>
       <DetailedItem />
