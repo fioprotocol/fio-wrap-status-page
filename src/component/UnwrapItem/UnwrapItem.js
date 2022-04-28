@@ -51,7 +51,7 @@ function UnwrapItem({ unwrapItem }) {
                 <div className="panel_FIO">
                 <p>{item}</p>
                 <Tag color="#525252">
-                  <div className="panel_tag">Wrapped</div>
+                  <div className="panel_tag">unwrapped</div>
                 </Tag>
               </div>
               )
