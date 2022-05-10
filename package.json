@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.19.1",
     "axios": "^0.25.0",
+    "bignumber.js": "^9.0.2",
     "dotenv-safe": "^8.2.0",
     "fontsource-roboto": "4.0.0",
     "moment": "2.29.1",

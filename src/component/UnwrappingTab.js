@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import moment from "moment";
 
 import { Button } from "antd";
 import UnwrapItem from "./UnwrapItem/UnwrapItem";
@@ -7,7 +6,8 @@ import web3 from "../config/config";
 import axios from "axios";
 import { BACK_URL } from "../config/config-testnet";
 import FIOABI from "../config/ABI/FIO.json";
-import contractAdd from "../config/contracts_testnet";
+import contractAdd from "../config/contracts_testnet"; 
+import BigNumber from "bignumber.js";
 function UnwrappingTabs() {
   const fioContract = new web3.eth.Contract(FIOABI, contractAdd.FIO_token);
   const [unwrapData, setUnwrapData] = useState([]);
@@ -44,27 +44,26 @@ function UnwrappingTabs() {
           (voteItem) => (voteItem.obt_id = item.transactionHash)
         );
         if (fioUnwrapData.id !== undefined) {
-          var timestamp = await web3.eth.getBlock(item.blockNumber);
-
-          console.log("timestamp: ", timestamp.timestamp);
-          var date = new Date(+timestamp.timestamp * 1000);
-          var dateString = moment(date).format("YYYY/MM/DD HH:mm");
-          const info =
-            "Timestamp: " +
-            dateString +
-            "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
-            "Actor:" +
-            "fio@faucet" +
-            "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
-            "Chain:" +
-            "Ethereum";
-          const data = {
-            ...item,
-            isCompleted: fioUnwrapData.isComplete,
-            voters: fioUnwrapData.voters,
-            info: info,
-          };
-          unwrap.push(data);
+            console.log(fioUnwrapData);
+            const unwrappedAmount = new BigNumber(item.returnValues.amount).dividedBy(new BigNumber(10).pow(9)).toString();
+            const unwrapData = {
+              chain_id: 1,
+              obt_id: item.transactionHash,
+              fio_address: item.returnValues.fioaddress,
+              token_amount: unwrappedAmount,
+              nft_name: '',
+              block_number: item.blockNumber.toString(),
+              fio_timestamp: fioUnwrapData.timestamp.toString(),
+              iscomplete: fioUnwrapData.isComplete,
+              voters: fioUnwrapData.voters,
+            }
+            const responseUnwrap = await axios({
+              method: "post",
+              url: "http://localhost:8008/fio-backend/setUnwrapAction",
+              data: unwrapData
+            });
+            unwrap.push(unwrapData);
+          // }
         }
       });
 
