@@ -13,7 +13,7 @@ function UnwrappingTabs() {
   const fetchData = async () => {
     const oraVote = await axios({
       method: "post",
-      url: "http://localhost:8008/fio-backend/v1/chain/get_table_rows",
+      url: "http://35.81.84.194:8889/v1/chain/get_table_rows",
       data: {
         code: "fio.oracle",
         scope: "fio.oracle",
@@ -27,7 +27,7 @@ function UnwrappingTabs() {
     });
     const response = await axios({
       method: "get",
-      url: "http://localhost:8008/fio-backend/blocknumber/ethereum",
+      url: "https://api-staging-wrap-status-backend.fioprotocol.io/blocknumber/ethereum",
     });
     const blockNumber = response.data.blockNumber;
     const bNumber = parseInt(blockNumber, 10);
@@ -58,7 +58,7 @@ function UnwrappingTabs() {
             }
             const responseUnwrap = await axios({
               method: "post",
-              url: "http://localhost:8008/fio-backend/setUnwrapAction",
+              url: "https://api-staging-wrap-status-backend.fioprotocol.io/setUnwrapAction",
               data: unwrapData
             });
             unwrap.push(unwrapData);
@@ -67,7 +67,7 @@ function UnwrappingTabs() {
       });
       const response = await axios({
         method: "get",
-        url: "http://localhost:8008/fio-backend/getUnwrapActionByComplete",
+        url: "https://api-staging-wrap-status-backend.fioprotocol.io/getUnwrapActionByComplete",
       });
       response.data.map((item)=>{
         unwrap.push(item);
