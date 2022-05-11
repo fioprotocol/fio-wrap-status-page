@@ -5,7 +5,6 @@ import WrapDetailedModal from "../Modal/WrapDetailedModal";
 import web3 from "../../config/config";
 import moment from "moment";
 
-
 function UnwrapItem({ unwrapItem }) {
   const { Panel } = Collapse;
   const [isWrapModal, setWrapModal] = useState(false);
@@ -13,10 +12,8 @@ function UnwrapItem({ unwrapItem }) {
   const showWrapModal = () => {
     setWrapModal(true);
   };
-  console.log(unwrapItem);
   const hideWrapModal = () => {};
-  const getUnwrapInfo = async (
-  ) => {
+  const getUnwrapInfo = async () => {
     var timestamp = await web3.eth.getBlock(unwrapItem.blockNumber);
     var date = new Date(+timestamp.timestamp * 1000);
     var dateString = moment(date).format("YYYY/MM/DD HH:mm");
@@ -30,10 +27,11 @@ function UnwrapItem({ unwrapItem }) {
       "Chain:" +
       "Ethereum";
     setInfoText(info);
-  }
-  useEffect(async ()=>{
+  };
+  console.log(unwrapItem)
+  useEffect(async () => {
     await getUnwrapInfo();
-  },[]);
+  }, []);
   return (
     <div>
       <WrapDetailedModal open={isWrapModal} onClose={hideWrapModal} />
@@ -43,7 +41,7 @@ function UnwrapItem({ unwrapItem }) {
           key="1"
           extra={
             <div>
-              {unwrapItem.isCompleted === 1 ? (
+              {unwrapItem.iscompleted === 1 ? (
                 <Tag color="#108ee9">
                   <div className="panel_tag">Completed</div>
                 </Tag>
@@ -70,17 +68,16 @@ function UnwrapItem({ unwrapItem }) {
           </div>
           <div className="panel_transaction">
             <h4>Destination Chain Transactions</h4>
-            {unwrapItem.voters.map(item=>{
-              return(
+            {unwrapItem.voters.map((item) => {
+              return (
                 <div className="panel_FIO">
-                <p>{item}</p>
-                <Tag color="#525252">
-                  <div className="panel_tag">unwrapped</div>
-                </Tag>
-              </div>
-              )
+                  <p>{item}</p>
+                  <Tag color="#525252">
+                    <div className="panel_tag">unwrapped</div>
+                  </Tag>
+                </div>
+              );
             })}
-
           </div>
         </Panel>
       </Collapse>
