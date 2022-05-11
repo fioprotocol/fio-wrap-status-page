@@ -14,7 +14,7 @@ function UnwrapItem({ unwrapItem }) {
   };
   const hideWrapModal = () => {};
   const getUnwrapInfo = async () => {
-    var timestamp = await web3.eth.getBlock(unwrapItem.blockNumber);
+    var timestamp = await web3.eth.getBlock(unwrapItem.block_number);
     var date = new Date(+timestamp.timestamp * 1000);
     var dateString = moment(date).format("YYYY/MM/DD HH:mm");
     const info =
@@ -28,7 +28,6 @@ function UnwrapItem({ unwrapItem }) {
       "Ethereum";
     setInfoText(info);
   };
-  console.log(unwrapItem)
   useEffect(async () => {
     await getUnwrapInfo();
   }, []);
@@ -41,7 +40,7 @@ function UnwrapItem({ unwrapItem }) {
           key="1"
           extra={
             <div>
-              {unwrapItem.iscompleted === 1 ? (
+              {unwrapItem.iscomplete === 1 ? (
                 <Tag color="#108ee9">
                   <div className="panel_tag">Completed</div>
                 </Tag>
@@ -55,12 +54,12 @@ function UnwrapItem({ unwrapItem }) {
         >
           <div className="panel_transaction" onClick={showWrapModal}>
             <h4>Transaction ID</h4>
-            <p>{unwrapItem.transactionHash}</p>
+            <p>{unwrapItem.obt_id}</p>
           </div>
           <div className="panel_transaction">
             <h4>FIO Chain Transactions</h4>
             <div className="panel_FIO">
-              <p>{unwrapItem.fioAddress}</p>
+              <p>{unwrapItem.fio_address}</p>
               <Tag color="#525252">
                 <div className="panel_tag">Sent</div>
               </Tag>

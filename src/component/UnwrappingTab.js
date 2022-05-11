@@ -4,7 +4,6 @@ import { Button } from "antd";
 import UnwrapItem from "./UnwrapItem/UnwrapItem";
 import web3 from "../config/config";
 import axios from "axios";
-import { BACK_URL } from "../config/config-testnet";
 import FIOABI from "../config/ABI/FIO.json";
 import contractAdd from "../config/contracts_testnet"; 
 import BigNumber from "bignumber.js";
@@ -66,12 +65,19 @@ function UnwrappingTabs() {
           // }
         }
       });
-
+      const response = await axios({
+        method: "get",
+        url: "http://localhost:8008/fio-backend/getUnwrapActionByComplete",
+      });
+      response.data.map((item)=>{
+        unwrap.push(item);
+      })
       return Promise.all(request).then(() => {
         setUnwrapData(unwrap);
       });
     }
   };
+
   const refreshData = async () => {
     await fetchData();
   };
