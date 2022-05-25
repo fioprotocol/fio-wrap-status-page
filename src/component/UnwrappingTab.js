@@ -5,7 +5,7 @@ import UnwrapItem from "./UnwrapItem/UnwrapItem";
 import web3 from "../config/config";
 import axios from "axios";
 import FIOABI from "../config/ABI/FIO.json";
-import contractAdd from "../config/contracts_testnet"; 
+import contractAdd from "../config/contracts_testnet";
 import BigNumber from "bignumber.js";
 function UnwrappingTabs() {
   const fioContract = new web3.eth.Contract(FIOABI, contractAdd.FIO_token);
@@ -13,21 +13,30 @@ function UnwrappingTabs() {
   const fetchData = async () => {
     const oraVote = await axios({
       method: "post",
-      url: "http://35.81.84.194:8889/v1/chain/get_table_rows",
+      url: "https://wrap-proxy.fioprotocol.io/fio-backend/v1/chain/get_table_rows",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+      },
       data: {
         code: "fio.oracle",
         scope: "fio.oracle",
-        table: "oravotes",
+        table:  "oravotes",
         lower_bound: "0",
         limit: 20,
-        json: true,
+        json: true, 
         key_type: "i64",
         index_position: "1",
       },
     });
     const response = await axios({
       method: "get",
-      url: "https://api-staging-wrap-status-backend.fioprotocol.io/blocknumber/ethereum",
+      url: "https://wrap-proxy.fioprotocol.io/fio-backend/blocknumber/ethereum",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*", 
+      },
     });
     const blockNumber = response.data.blockNumber;
     const bNumber = parseInt(blockNumber, 10);
@@ -43,7 +52,6 @@ function UnwrappingTabs() {
           (voteItem) => (voteItem.obt_id = item.transactionHash)
         );
         if (fioUnwrapData.id !== undefined) {
-            console.log(fioUnwrapData);
             const unwrappedAmount = new BigNumber(item.returnValues.amount).dividedBy(new BigNumber(10).pow(9)).toString();
             const unwrapData = {
               chain_id: 1,
@@ -58,7 +66,7 @@ function UnwrappingTabs() {
             }
             const responseUnwrap = await axios({
               method: "post",
-              url: "https://api-staging-wrap-status-backend.fioprotocol.io/setUnwrapAction",
+              url: "https://wrap-proxy.fioprotocol.io/fio-backend/setUnwrapAction",
               data: unwrapData
             });
             unwrap.push(unwrapData);
@@ -67,7 +75,7 @@ function UnwrappingTabs() {
       });
       const response = await axios({
         method: "get",
-        url: "https://api-staging-wrap-status-backend.fioprotocol.io/getUnwrapActionByComplete",
+        url: "https://wrap-proxy.fioprotocol.io/fio-backend/getUnwrapActionByComplete",
       });
       response.data.map((item)=>{
         unwrap.push(item);

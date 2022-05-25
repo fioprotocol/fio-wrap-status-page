@@ -20,9 +20,9 @@ function* getBalancePriceSaga() {
     yield put({
         type: APP_API_CALL_FAIL,
         message: "Error when get FIO balance",
-      err: e.message,
+        err: e.message,
     });
-  }
+  } 
 }
 
 export function* watchGetFIOBalance() {

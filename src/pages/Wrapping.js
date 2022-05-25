@@ -6,7 +6,7 @@ import UnwrappingTabs from "../component/UnwrappingTab";
 function Wrapping() {
   // const dispatch = useDispatch();
   const { TabPane } = Tabs;
-  const  callback = (key) => {
+  const callback = (key) => {
     console.log(key);
   };
   return (
