@@ -13,15 +13,16 @@ import { APP_API_CALL_FAIL } from "../../config";
 function* getBalancePriceSaga() {
   try {
     const result = yield getFIOBalanceApi();
+    console.log("data: ", result);
     yield put({ type: GET_FIO_BALANCE_SUCCESS, balance: result });
   } catch (e) {
     yield put({ type: GET_FIO_BALANCE_FAIL });
     yield put({
         type: APP_API_CALL_FAIL,
         message: "Error when get FIO balance",
-      err: e.message,
+        err: e.message,
     });
-  }
+  } 
 }
 
 export function* watchGetFIOBalance() {

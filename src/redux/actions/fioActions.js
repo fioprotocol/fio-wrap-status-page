@@ -7,8 +7,3 @@ export const getBalance = () => {
     type: GET_FIO_BALANCE,
   };
 };
-export const getBalanceSuccess = () => {
-  return {
-    type: GET_FIO_BALANCE_SUCCESS,
-  };
-};

@@ -5,7 +5,6 @@ import "./style.css";
 
 function WrapDetailedModal(props) {
   const { Panel } = Collapse;
-  console.log(Panel);
 
   return (
     <Modal
