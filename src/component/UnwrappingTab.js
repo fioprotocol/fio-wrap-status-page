@@ -66,7 +66,6 @@ function UnwrappingTabs() {
         const fioUnwrapData = oraVote.data.rows.find(
           (voteItem) => (voteItem.obt_id = item.transactionHash)
         );
-        console.log(item,item.returnValues.domain)
         if (fioUnwrapData.id !== undefined) {
             // const unwrappedAmount = new BigNumber(item.returnValues.amount).dividedBy(new BigNumber(10).pow(9)).toString();
             const unwrapData = {

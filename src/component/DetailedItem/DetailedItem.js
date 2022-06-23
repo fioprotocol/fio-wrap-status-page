@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Collapse, Tag } from 'antd';
 import "./style.css";
-import WrapDetailedModal from '../Modal/WrapDetailedModal';
+import {WrapDetailedModal} from '../Modal/WrapDetailedModal';
 
 function DetailedItem() {
   const { Panel } = Collapse;
@@ -10,7 +10,7 @@ function DetailedItem() {
     setWrapModal(true);
   }
   const hideWrapModal = () => {
-     
+    setWrapModal(false);     
   }
   return ( 
     <div>

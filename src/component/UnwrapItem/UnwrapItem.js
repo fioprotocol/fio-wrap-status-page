@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Collapse, Tag } from "antd";
 import "./style.css";
-import WrapDetailedModal from "../Modal/WrapDetailedModal";
+import {WrapDetailedModal} from "../Modal/WrapDetailedModal";
 import {web3, polyWeb3} from "../../config/config";
 import moment from "moment";
 
@@ -38,7 +38,7 @@ function UnwrapItem({ unwrapItem }) {
   }, []);
   return (
     <div>
-      <WrapDetailedModal open={isWrapModal} onClose={hideWrapModal} />
+      <WrapDetailedModal open={isWrapModal} onClose={hideWrapModal} detailItem={unwrapItem}/>
       <Collapse defaultActiveKey={["1"]} bordered>
         <Panel
           header={infoText}
