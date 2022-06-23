@@ -1,6 +1,6 @@
 // import contracts from './contracts_testnet';
-export const INFURA_URL = "https://ropsten.infura.io/v3/17e1f0782b604498bf68acdc9d1beb83";
-export const POLYGON_URL = "https://rpc-mumbai.maticvigil.com/v1/be8edebd35298cc68689379e4efc21a401730797";
+export const INFURA_URL = "https://rinkeby.infura.io/v3/2ca52b84d74f46efb23d1730e4e215cf";
+export const POLYGON_URL = "https://polygon-mumbai.infura.io/v3/2ca52b84d74f46efb23d1730e4e215cf";
 export const BACK_URL = "https://api-staging-wrap-status-backend.fioprotocol.io/";
 
 // export default {

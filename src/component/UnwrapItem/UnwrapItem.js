@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Collapse, Tag } from "antd";
 import "./style.css";
 import WrapDetailedModal from "../Modal/WrapDetailedModal";
-import web3 from "../../config/config";
+import {web3, polyWeb3} from "../../config/config";
 import moment from "moment";
 
 function UnwrapItem({ unwrapItem }) {
@@ -14,18 +14,23 @@ function UnwrapItem({ unwrapItem }) {
   };
   const hideWrapModal = () => {};
   const getUnwrapInfo = async () => {
-    var timestamp = await web3.eth.getBlock(unwrapItem.block_number);
+    let timestamp;
+    let network_name;
+    if(unwrapItem.chain_id === 1) {
+      timestamp = await web3.eth.getBlock(unwrapItem.block_number);
+      network_name = 'Ethereum';
+    } else if(unwrapItem.chain_id === 137) {
+      timestamp = await polyWeb3.eth.getBlock(unwrapItem.block_number);
+      network_name = 'Polygon';
+    }
     var date = new Date(+timestamp.timestamp * 1000);
     var dateString = moment(date).format("YYYY/MM/DD HH:mm");
     const info =
-      "Timestamp: " +
       dateString +
       "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
-      "Actor:" +
       unwrapItem.fio_address +
       "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
-      "Chain:" +
-      "Ethereum";
+      network_name;
     setInfoText(info);
   };
   useEffect(async () => {
