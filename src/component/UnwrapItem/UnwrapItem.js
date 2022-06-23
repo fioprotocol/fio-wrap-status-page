@@ -12,7 +12,9 @@ function UnwrapItem({ unwrapItem }) {
   const showWrapModal = () => {
     setWrapModal(true);
   };
-  const hideWrapModal = () => {};
+  const hideWrapModal = () => {
+    setWrapModal(false);
+  };
   const getUnwrapInfo = async () => {
     let timestamp;
     let network_name;

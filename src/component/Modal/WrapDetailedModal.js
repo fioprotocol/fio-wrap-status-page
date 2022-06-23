@@ -1,10 +1,24 @@
 import React, { useEffect, useState } from 'react';  
-import { Collapse, Card } from 'antd';
+import { Collapse, Card, Button } from 'antd';
 import Modal from 'react-modal';
 import {web3, polyWeb3} from "../../config/config";
 import "./style.css";
 import moment from "moment";
-
+const customStyles = {
+    overlay: {
+      zIndex: '999',
+    },
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+        width: '90%',
+        height: '500px'
+    }
+  };
 function WrapDetailedModal({ open, onClose, detailItem}) {
   const { Panel } = Collapse;
     console.log(detailItem);
@@ -31,6 +45,7 @@ function WrapDetailedModal({ open, onClose, detailItem}) {
     <Modal
     isOpen={open}
     onRequestClose={onClose}
+    style={customStyles}
     >
         <h2>Wrap Details</h2>
         <h4>Transaction Information</h4>
@@ -84,6 +99,7 @@ function WrapDetailedModal({ open, onClose, detailItem}) {
                 </div>
             </div>
         </Card>
+        <Button style={{marginTop:'2rem'}} type="primary" onClick={onClose}>OK</Button>
     </Modal>
   );
 }
