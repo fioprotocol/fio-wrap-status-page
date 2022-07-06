@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';  
+import React, { useEffect, useState } from 'react';
 import { Collapse, Card, Button } from 'antd';
 import Modal from 'react-modal';
 import {web3, polyWeb3} from "../../config/config";
@@ -21,7 +21,6 @@ const customStyles = {
   };
 function WrapDetailedModal({ open, onClose, detailItem}) {
   const { Panel } = Collapse;
-    console.log(detailItem);
     const [timeStamp, setTimeStamp] = useState('');
     const nftTitle = detailItem !== undefined ?(detailItem.nftname !== ''?'Domain':'Amount'):'Amount';
     const nftDomain = detailItem !== undefined ?(detailItem.nftname !== ''?detailItem.nftname :detailItem.token_amount):'0';
@@ -43,9 +42,9 @@ function WrapDetailedModal({ open, onClose, detailItem}) {
       }, []);
   return (
     <Modal
-    isOpen={open}
-    onRequestClose={onClose}
-    style={customStyles}
+        isOpen={open}
+        onRequestClose={onClose}
+        style={customStyles}
     >
         <h2>Wrap Details</h2>
         <h4>Transaction Information</h4>

@@ -32,7 +32,6 @@ function UnwrapItem({ unwrapItem }) {
       "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
       unwrapItem.fio_address +
       "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
-      network_name;
     setInfoText(info);
   };
   useEffect(async () => {
