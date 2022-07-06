@@ -49,7 +49,7 @@ function UnwrappingTabs() {
       },
     });
     const blockNumber = response.data.blockNumber;
-    const polyBlockNumber = polyResponse.data.blockNumber
+    const polyBlockNumber = polyResponse.data.blockNumber;
     const bNumber = parseInt(blockNumber, 10);
     const pNumber = parseInt(polyBlockNumber, 10);
     const events = await fioContract.getPastEvents("unwrapped", {
@@ -114,6 +114,7 @@ function UnwrappingTabs() {
               url: "https://wrap-proxy.fioprotocol.io/fio-backend/setUnwrapAction",
               data: unwrapData
             });
+
             unwrap.push(unwrapData);
           // }
         }
