@@ -1,17 +1,4 @@
 // import contracts from './contracts_testnet';
-export const INFURA_URL = "https://rinkeby.infura.io/v3/2ca52b84d74f46efb23d1730e4e215cf";
-export const POLYGON_URL = "https://polygon-mumbai.infura.io/v3/2ca52b84d74f46efb23d1730e4e215cf";
-export const BACK_URL = "https://api-staging-wrap-status-backend.fioprotocol.io/";
-
-// export default {
-//     port: 3010,
-//     portMonitor: 20,
-//     web3Provider: `https://ropsten.infura.io/v3/17e1f0782b604498bf68acdc9d1beb83`, //infura url
-//     polygonProvider: `https://rpc-mumbai.maticvigil.com/v1/be8edebd35298cc68689379e4efc21a401730797`,
-//     unsubscribeLandingPage: '',
-//     ownerAddress: '0xB7180670fc3e7a4Ccd8fE4bcBEcAe2bEaA7d92E0',
-//     startBlock: 0,
-//     stepSize: 10,
-//     waitingTime: 15,
-//     ...contracts
-// };
+export const INFURA_URL = "";
+export const POLYGON_URL = "";
+export const BACK_URL = "";
