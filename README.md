@@ -6,7 +6,7 @@ The FIO Wrapping Status Page is a publicly hosted landing page(s) which display 
 ## Installation
 
 ```bash
-npm run install
+npm install
 ```
 
 ## How to run the app:
