@@ -2,15 +2,21 @@ import React, { useState, useEffect } from "react";
 
 import { Button } from "antd";
 import UnwrapItem from "./UnwrapItem/UnwrapItem";
-import {web3, polyWeb3} from "../config/config";
+import config from "../config/config";
 import axios from "axios";
 import FIOABI from "../config/ABI/FIO.json";
 import POLYABI from '../config/ABI/FIOMATICNFT.json';
-import contractAdd from "../config/contracts_testnet";
 import BigNumber from "bignumber.js";
+
 function UnwrappingTabs() {
-  const fioContract = new web3.eth.Contract(FIOABI, contractAdd.FIO_token);
-  const polyContract = new polyWeb3.eth.Contract(POLYABI, contractAdd.FIO_NFT_POLYGON);
+  const fioContract = new config.web3.eth.Contract(
+    FIOABI,
+    process.env.REACT_APP_FIO_TOKEN
+  );
+  const polyContract = new config.polyWeb3.eth.Contract(
+    POLYABI,
+    process.env.REACT_APP_FIO_NFT_POLYGON
+  );
   const [unwrapData, setUnwrapData] = useState([]);
   const fetchData = async () => {
     const oraVote = await axios({

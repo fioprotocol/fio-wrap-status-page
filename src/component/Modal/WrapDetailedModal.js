@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Collapse, Card, Button } from 'antd';
 import Modal from 'react-modal';
-import {web3, polyWeb3} from "../../config/config";
+import config from '../../config/config';
 import "./style.css";
 import moment from "moment";
 const customStyles = {
@@ -27,9 +27,9 @@ function WrapDetailedModal({ open, onClose, detailItem}) {
     const getTimeStamp = async()=>{
         let timestamp;
         if(detailItem.chain_id === 1) {
-          timestamp = await web3.eth.getBlock(detailItem.block_number);
+          timestamp = await config.web3.eth.getBlock(detailItem.block_number);
         } else if(detailItem.chain_id === 137) {
-          timestamp = await polyWeb3.eth.getBlock(detailItem.block_number);
+          timestamp = await config.polyWeb3.eth.getBlock(detailItem.block_number);
         }
         var date = new Date(+timestamp.timestamp * 1000);
         var dateString = moment(date).format("YYYY/MM/DD HH:mm");
