@@ -1,7 +1,10 @@
 # FIO Wrapping Status Page
 
-The FIO Wrapping Status Page is a publicly hosted landing page(s) which display current activity of tokens and domains being wrapped. It collects information from FIO Chain and Destination Chains (Ethereum, Polygon).
+This respository is no longer used and has been archived. The FIO Wrap Status page is now hosted as part of the FIO Dashboard. 
 
+# Archived info:
+
+The FIO Wrapping Status Page is a publicly hosted landing page(s) which display current activity of tokens and domains being wrapped. It collects information from FIO Chain and Destination Chains (Ethereum, Polygon).
 
 ## Installation
 
